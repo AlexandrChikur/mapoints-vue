@@ -1,0 +1,116 @@
+/* Base css settings */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Baloo Bhaijaan 2';
+}
+
+/* Point Component */
+
+.point {
+    position: relative;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    cursor: pointer;
+    background: #000;
+    line-height: 60px;
+    text-align: center;
+    color: #FCFCFC;
+    font-size: 27px;
+}
+.point__description {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    padding: 20px 32px;
+    min-height: 100px;
+    border-radius: 9px;
+    color: #FCFCFC;
+    background: #686868;
+    z-index: 1;
+    left: 50%;
+    transform: translate(-50%, 0);
+    top: 80%;
+    margin-top: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all ease-in-out .3s;
+}
+
+.point__description_visible {
+    top: 100%;
+    opacity: 1;
+    visibility: visible;
+    transition: all ease-in-out .3s;
+}
+
+.point__description::before {
+    content: "";
+    position: absolute;
+    display: block;
+    border-bottom: 10px solid #686868;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    top: -10px;
+    left: 50%;
+    margin-left: -10px;
+}
+
+.point__description * {
+    display: flex;
+    align-items: center;
+    height: 40px;
+}
+
+.point__description_author {
+    display: flex;
+    font-size: 14px;
+    height: 20px;
+    justify-content: flex-end;
+}
+
+.point__description_name {
+    display: inline;
+    position: relative;
+    line-height: 40px;
+    font-size: 16px;
+    overflow: hidden;
+    text-align: left;
+    text-overflow: ellipsis;
+}
+
+.point__description_points {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: start;
+}
+
+.point__description_point {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.point__description_point:first-child {
+    margin-right: 10px;
+}
+
+.point__description_points_coord_name {
+    font-size: 19px;
+    margin-right: 5px;
+}
+
+.point__description_point_coord_value {
+    height: 32px;
+    border-radius: 16px;
+    line-height: 32px;
+    padding: 0 12px;
+    background: #565656;
+    font-size: 14px;
+}
+
+/* Point Cmponent end */
