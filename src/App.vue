@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <point-component/>
+    <header-component/>
   </div>
 </template>
 
 <script>
-import PointComponent from './components/PointComponent'
+import HeaderComponent from './components/HeaderComponent'
 
 export default {
   name: 'App',
   components: {
-    PointComponent
+    HeaderComponent
   }
 }
 </script>

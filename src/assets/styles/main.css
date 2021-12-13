@@ -114,3 +114,21 @@
 }
 
 /* Point Cmponent end */
+
+
+
+/* Header Cmponent */
+
+.header {
+    width: 898px;
+    height: 109px;
+    display: flex;
+    margin: 0 auto;
+    margin-top: 62px;
+    justify-content: space-between;
+    color: #434343;
+    align-items: center;
+}
+
+
+/* Header Cmponent end */
