@@ -27,7 +27,10 @@ export default {
     data() {
         return {
             pointBgColors: [
-                "#8560BF", "#521CA6", "#9856FF", "#B280FF", "#C6A2FF"
+                "#8790FF", "#A7ADFF", "#5F6BFF", "#656CBF", "#1F29A6",
+                "#8560BF", "#521CA6", "#9856FF", "#B280FF", "#C6A2FF",
+                "#5D9BBF", "#1A72A6", "#50BEFF", "#50BEFF", "#9EDBFF",
+                "#BFA357", "#A68016", "#FFCD45", "#FFDA74", "#FFE499"
             ],
             pointName: "Moscow",
             pointAuthorName: "Billy Jean",
