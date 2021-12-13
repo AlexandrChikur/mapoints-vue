@@ -6,6 +6,11 @@
     font-family: 'Baloo Bhaijaan 2';
 }
 
+a {
+    color: #5F6CFF;
+    text-decoration: none;
+}
+
 /* Point Component */
 
 .point {
@@ -120,7 +125,7 @@
 /* Header Cmponent */
 
 .header {
-    width: 898px;
+    max-width: 898px;
     height: 109px;
     display: flex;
     margin: 0 auto;
@@ -128,6 +133,53 @@
     justify-content: space-between;
     color: #434343;
     align-items: center;
+    padding: 0 20px;
+}
+
+.header__title {
+    display: flex;
+    font-size: 64px;
+}
+
+.header__title_version {
+    display: flex;
+    margin-left: 20px;
+    font-size: 15px;
+    align-items: center;
+}
+
+.header__user {
+    display: flex;
+    align-items: center;
+}
+
+.header__user_name {
+    margin-right: 22px;
+}
+
+.header__user__logout_icon {
+    cursor: pointer;
+}
+
+.header__auth ul {
+    list-style-type: none;
+}
+
+.header__auth ul li {
+    float: left;
+    padding: 0 10px;
+    transition: ease-in-out .3s;
+}
+
+.header__auth ul li:hover {
+    float: left;
+    color: rgb(47, 58, 174);
+    transition: ease-in-out .3s;
+    padding: 0 10px;
+}
+
+.header__auth ul li:last-child {
+    padding-right: 0;
 }
 
 
