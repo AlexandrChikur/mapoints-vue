@@ -1,10 +1,10 @@
 <template>
     <div class="root_point">
         <div class="point" :style="{backgroundColor: randomColor()}" @click="showPointDetail()">
-            <p class="point__letter">F</p>
+            <p class="point__letter">{{ getPointLetter() }}</p>
             <div class="point__description" :class="{point__description_visible: showDescription}">
-                <div class="point__description_author">Bane Jhones</div>
-                <div class="point__description_name" :title="getPointName()">{{ getPointName() }}</div>
+                <div class="point__description_author">{{ pointAuthorName }}</div>
+                <div class="point__description_name" :title="pointName">{{ pointName }}</div>
                 <div class="point__description_points">
                     <div class="point__description_point">
                         <div class="point__description_points_coord_name">X</div>
@@ -29,8 +29,9 @@ export default {
             pointBgColors: [
                 "#8560BF", "#521CA6", "#9856FF", "#B280FF", "#C6A2FF"
             ],
-            showDescription: false,
-            pointName: "sdfsdfsdfsdfsdddddddddddddssdfdf"
+            pointName: "Moscow",
+            pointAuthorName: "Billy Jean",
+            showDescription: false
         }
     },
     methods: {
@@ -41,8 +42,8 @@ export default {
         showPointDetail(){
             this.showDescription = !this.showDescription;
         },
-        getPointName(){
-            return this.pointName
+        getPointLetter(){
+            return this.getPointName().slice(0,1).toUpperCase()
         }
     }
 }
