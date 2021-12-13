@@ -8,11 +8,11 @@
                 <div class="point__description_points">
                     <div class="point__description_point">
                         <div class="point__description_points_coord_name">X</div>
-                        <div class="point__description_point_coord_value">3</div>
+                        <div class="point__description_point_coord_value point_coord_value">3</div>
                     </div>
                     <div class="point__description_point">
                         <div class="point__description_points_coord_name">Y</div>
-                        <div class="point__description_point_coord_value"></div>
+                        <div class="point__description_point_coord_value point_coord_value"></div>
                     </div>
                 </div>
 

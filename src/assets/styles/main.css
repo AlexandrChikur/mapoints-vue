@@ -11,6 +11,24 @@ a {
     text-decoration: none;
 }
 
+.flex_nowrap {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.block_header_font_size {
+    font-size: 64px;
+}
+
+.point_coord_value {
+    height: 32px;
+    border-radius: 16px;
+    line-height: 32px;
+    padding: 0 12px;
+    background: #565656;
+    font-size: 14px;
+}
+
 /* Point Component */
 
 .point {
@@ -79,7 +97,6 @@ a {
 
 .point__description_name {
     display: inline;
-    position: relative;
     line-height: 40px;
     font-size: 16px;
     overflow: hidden;
@@ -109,15 +126,6 @@ a {
     margin-right: 5px;
 }
 
-.point__description_point_coord_value {
-    height: 32px;
-    border-radius: 16px;
-    line-height: 32px;
-    padding: 0 12px;
-    background: #565656;
-    font-size: 14px;
-}
-
 /* Point Cmponent end */
 
 
@@ -138,7 +146,6 @@ a {
 
 .header__title {
     display: flex;
-    font-size: 64px;
 }
 
 .header__title_version {
@@ -184,3 +191,100 @@ a {
 
 
 /* Header Cmponent end */
+
+
+
+/* Points Cmponent */
+
+.points {
+    max-width: 898px;
+    height: 109px;
+    display: flex;
+    margin: 0 auto;
+    margin-top: 43px;
+    justify-content: space-between;
+    color: #434343;
+    align-items: center;
+    padding: 0 20px;
+    flex-direction: column;
+}
+
+.points__header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    height: 110px;
+}
+
+.points__header__btn_ico {
+    margin-right: 14px;
+}
+
+.points__header__btn_txt {
+    font-size: 22px;
+}
+
+.points__header__btns__findall {
+    cursor: pointer;
+}
+
+
+.points__body {
+    width: 100%;
+    display: inline-block;
+    flex-direction: column;
+    background: #E2E2E2;
+    border-radius: 11px;
+}
+
+.points__body__nothing {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    line-height: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.points__body__point {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 826px;
+    height: 55px;
+    margin: 36px;
+    margin-bottom: 15px;
+}
+
+.points__body__point:last-child {
+    margin-bottom: 36px;
+}
+
+.points__body__point__name {
+    display: inline-flexbox;
+    align-items: center;
+    max-width: 200px;
+    height: inherit;
+    line-height: 55px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 18px;
+}
+
+.points__body__point__coord_name {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.points__body__point__coord_value {
+    color: #FCFCFC;
+    align-items: center;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Points Cmponent end */
