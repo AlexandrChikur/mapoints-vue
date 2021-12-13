@@ -43,7 +43,7 @@ export default {
             this.showDescription = !this.showDescription;
         },
         getPointLetter(){
-            return this.getPointName().slice(0,1).toUpperCase()
+            return this.pointName.slice(0,1).toUpperCase()
         }
     }
 }
