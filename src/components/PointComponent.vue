@@ -1,6 +1,6 @@
 <template>
     <div class="root_point">
-        <div class="point" :style="{backgroundColor: randomColor()}" @click="showPointDetail()">
+        <div class="point cp" :style="{backgroundColor: randomColor()}" @click="showPointDetail()">
             <p class="point__letter">{{ getPointLetter() }}</p>
             <div class="point__description" :class="{point__description_visible: showDescription}">
                 <div class="point__description_author">{{ pointAuthorName }}</div>

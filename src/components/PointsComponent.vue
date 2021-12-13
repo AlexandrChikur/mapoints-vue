@@ -4,7 +4,7 @@
             <div class="points__header">
                 <div class="points__header_title block_header_font_size">Points</div>
                 <div class="points__header__btns">
-                    <div class="points__header__btns__findall flex_nowrap">
+                    <div class="points__header__btns__findall flex_nowrap cp">
                         <img src="../assets/img/ico/search.svg" alt="" class="points__header__btns_search-icon points__header__btn_ico">
                         <div class="points__header__btns__findall_text points__header__btn_txt">Search all</div>
                     </div>

@@ -7,7 +7,7 @@
             </div>
             <div class="header__user" v-if="temp.loggedIn">
                 <div class="header__user_name">{{ temp.uName }}</div>
-                <img src="../assets/img/ico/logout.svg" class="header__user__logout_icon">
+                <img src="../assets/img/ico/logout.svg" class="header__user__logout_icon cp">
             </div>
             <div class="header__auth" v-else>
                 <ul>
@@ -26,7 +26,7 @@ export default {
         return {
             temp: { // temporary object
                 uName: "Nickey L.",
-                loggedIn: false,
+                loggedIn: true,
             }
         }
     },
