@@ -8,9 +8,9 @@
                 <div class="header__title_name">{{ this.$constants.TITLE }}</div>
                 <div class="header__title_version">v.{{ this.$constants.VERSION }}</div>
             </div>
-            <div class="header__user" v-if="temp.loggedIn">
-                <div class="header__user_name">{{ temp.uName }}</div>
-                <img src="../assets/img/ico/logout.svg" class="header__user__logout_icon cp">
+            <div class="header__user" v-if="loggedIn">
+                <div class="header__user_name">{{ username }}</div>
+                <img src="../assets/img/ico/logout.svg" class="header__user__logout_icon cp" @click="logOut">
             </div>
             <div class="header__auth" v-else>
                 <ul>
@@ -29,14 +29,11 @@ import SignupPopup from '../components/popups/SignupPopup'
 export default {
     components: { LoginPopup, SignupPopup },
     name: 'HeaderComponent',
+    props: ["loggedIn", "username", "userId" ],
     data() {
         return {
             isLoginPopUpVisible: false,
             isSignUpPopUpVisible: false,
-            temp: { // temporary object
-                uName: "Nickey L.",
-                loggedIn: false
-            }
         }
     },
     methods: {
@@ -49,6 +46,10 @@ export default {
         closePopUp() {
             this.isLoginPopUpVisible = false;
             this.isSignUpPopUpVisible = false;
+        },
+        logOut() {
+            this.$store.dispatch('deleteToken')
+            this.$store.dispatch('deleteUser')
         }
     },
 }
