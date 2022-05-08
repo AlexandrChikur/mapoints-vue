@@ -26,7 +26,7 @@ export default {
         return {
             temp: { // temporary object
                 uName: "Nickey L.",
-                loggedIn: true,
+                loggedIn: false
             }
         }
     },

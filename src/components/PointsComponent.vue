@@ -11,22 +11,7 @@
                 </div>
             </div>
             <div class="points__body">
-                <div class="points__body__point flex_nowrap" v-if="temp.pointsExists">
-                    <point-component/>
-                    <div class="points__body__point__name" :title="temp.pointTitle">
-                            {{ temp.pointTitle }}
-                    </div>
-                    <div class="points__body__point__coord flex_nowrap">
-                        <div class="points__body__point__coord_name">X</div>
-                        <div class="points__body__point__coord_value point_coord_value">4322</div>
-                    </div>
-                    <div class="points__body__point__coord flex_nowrap">
-                        <div class="points__body__point__coord_name">Y</div>
-                        <div class="points__body__point__coord_value point_coord_value">3242</div>
-                    </div>
-                    <div class="points__body__point__author">John Doe</div>
-                </div>
-                <div class="points__body__point flex_nowrap" v-if="temp.pointsExists">
+                <div class="points__body__point" v-if="temp.pointsExists">
                     <point-component/>
                     <div class="points__body__point__name" :title="temp.pointTitle">
                             {{ temp.pointTitle }}

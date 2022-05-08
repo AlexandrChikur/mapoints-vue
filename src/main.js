@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
+// import store from './store/index'
 
 import '../src/assets/styles/main.css'
 
@@ -10,4 +11,5 @@ Vue.config.productionTip = false
 Vue.use(Constants)
 new Vue({
   render: h => h(App),
+  // store
 }).$mount('#app')

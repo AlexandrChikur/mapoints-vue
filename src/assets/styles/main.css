@@ -4,6 +4,8 @@
     padding: 0;
     margin: 0;
     font-family: 'Baloo Bhaijaan 2';
+    border: none;
+    outline: none;
 }
 
 a {
@@ -31,6 +33,16 @@ a {
     padding: 0 12px;
     background: #565656;
     font-size: 14px;
+}
+
+.point_coord_field {
+    padding: 0px 12px;
+    background: #E3E3E3;
+    border-radius: 20px;
+    color: #474747;
+    line-height: 39px;
+    text-align: center;
+    width: 78px;
 }
 
 /* Point Component */
@@ -247,10 +259,10 @@ a {
 }
 
 .points__body__point {
+    max-width: 826px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 826px;
     height: 55px;
     margin: 36px;
     margin-bottom: 15px;
@@ -333,7 +345,140 @@ a {
 .route {
     display: flex;
     width: 100%;
-    
 }
 
 /* RouteCmponent end */
+
+/* Popups components */
+
+.popup_button {
+    padding: 9px 87px;
+    color: #000;
+    background: #FFCD45;
+    border-radius: 21px;
+    display: flex;
+    justify-content: center;
+}
+
+.popup_field {
+    padding: 10px 20px;
+    border-bottom: solid 2px #000;
+}
+
+.popup_header {
+    font-size: 42;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 43px;
+    color: #474747;
+}
+
+.popup_form {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 312px;
+    align-items: center;
+}
+
+.login_popup {
+    display: flex;
+    width: 551px;
+    height: 357px;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    left: 800px;
+    background: #ccc;
+    z-index: 1;
+    border-radius: 24px;
+}
+
+.login_popup__form {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 312px;
+    align-items: center;
+}
+
+.login_popup__form__fields {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login_popup__form__fields_password {
+    margin-top: 20px;
+}
+
+.login_popup__form__button_submit {
+    padding: 9px 87px;
+    color: #000;
+    background: #FFCD45;
+    border-radius: 21px;
+}
+
+.signup_popup {
+    display: flex;
+    width: 551px;
+    height: 357px;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    z-index: 1;
+    border-radius: 24px;
+}
+
+.signup_popup__form {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 312px;
+    align-items: center;
+}
+
+.signup_popup__form__fields {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signup_popup__form__fields_password, .signup_popup__form__fields_password_again {
+    margin-top: 20px;
+}
+
+.create_point_popup {
+    display: flex;
+    width: 551px;
+    height: 357px;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    z-index: 1;
+    border-radius: 24px;
+}
+
+.create_point_popup__fields__name_name {
+    width: 79%;
+}
+
+.create_point_popup__fields__coordinates {
+    margin-top: 20px;
+}
+
+.create_point_popup__fields__coordinates_y {
+    margin-left: 10px;
+}
+
+.create_point_popup__fields__button {
+    margin-top: 60px;
+}
+
+/* Popups components end */
