@@ -292,7 +292,7 @@ a {
 
 .points-list {
     max-width: 898px;
-    height: 109px;
+    height: 100%;
     display: flex;
     margin: 0 auto;
     margin-top: 43px;
@@ -308,17 +308,22 @@ a {
     align-items: center;
     width: 100%;
     justify-content: space-between;
-    height: 110px;
+    height: 50px;
 }
 
 
 .points-list__body {
+    display: flex;
+    justify-content: left;
+    align-items: center;
     width: 100%;
-    /* height: 83px; ERROR */
-    display: inline-block;
-    flex-direction: column;
+    height: 83px;
     background: #E2E2E2;
     border-radius: 11px;
+}
+
+.points-list__body .root_point{
+    padding-left: 30px;
 }
 
 /* PointsList Cmponent end */
