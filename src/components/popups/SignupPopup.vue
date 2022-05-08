@@ -1,6 +1,7 @@
 <template>
   <div class="signup_popup_root">
-      <div class="signup_popup">
+    <div class="popup_dark_wrapper" ref="popup_wrapper">
+      <div class="signup_popup popup">
         <div class="signup_popup__header popup_header">
           SIGN UP
         </div>
@@ -15,6 +16,7 @@
           </div>
         </div>
       </div>
+    </div>
   </div>
 </template>
 
@@ -25,7 +27,20 @@ export default {
     data() {
         return {}
     },
-    computed: {}
+    computed: {},
+    methods: {
+      closePopUp() {
+        this.$emit('closePopup')
+      }
+    },
+    mounted() {
+      let vm = this;
+      document.addEventListener('click', function(item){
+        if(item.target == vm.$refs['popup_wrapper']){
+          vm.closePopUp();
+        }
+      })
+    },
 }
 </script>
 
