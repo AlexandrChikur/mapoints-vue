@@ -327,3 +327,13 @@ a {
 }
 
 /* PointsList Cmponent end */
+
+/* RouteCmponent */
+
+.route {
+    display: flex;
+    width: 100%;
+    
+}
+
+/* RouteCmponent end */
