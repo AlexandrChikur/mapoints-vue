@@ -10,23 +10,23 @@
         :loggedIn="loggedIn"
         :username="getUserName"
         :userId="getUserId"/>
-    <!-- <points-component
+    <points-component
         :loggedIn="loggedIn"
         :username="getUserName"
-        :userId="getUserId"/> -->
+        :userId="getUserId"/>
   </div>
 </template>
 
 <script>
 import HeaderComponent from './components/HeaderComponent'
-// import PointsComponent from './components/PointsComponent'
+import PointsComponent from './components/PointsComponent'
 import PointsListComponent from './components/PointsListComponent.vue'
 
 export default {
   name: 'App',
   components: {
     HeaderComponent,
-    // PointsComponent,
+    PointsComponent,
     PointsListComponent,
   },
   computed: {

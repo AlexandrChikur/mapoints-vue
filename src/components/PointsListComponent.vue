@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="points-list__body">
-                <div v-if="points.length > 0" class="flex_nowrap">
+                <div v-if="points.length > 0" class="points-list__body-points">
                     <div v-for="(point, idx) in points" :key="idx">
                         <point-component 
                             :pointId="point.id"

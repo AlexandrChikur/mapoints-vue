@@ -246,8 +246,28 @@ a {
     font-size: 16px;
 }
 
+.points__header__btns_search-icon {
+    position: relative;
+    left: -45px
+}
+
 .points__header__btns__findall_text {
-    font-size: 22px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+.points__header__btns__findall_text:hover {
+    color: #50BEFF;
+}
+
+.points__header__btns__findall_input {
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 15px;
+    padding-right: 40px;
+    background: #E2E2E2;
+    border-radius: 11px;
 }
 
 .points__body {
@@ -343,9 +363,17 @@ a {
     border-radius: 11px;
 }
 
+.points-list__body-points {
+    display: flex;
+    padding: 0px 20px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+}
+/* 
 .points-list__body .root_point{
     padding-left: 30px;
-}
+} */
 
 /* PointsList Cmponent end */
 
