@@ -3,7 +3,7 @@
         <div class="point cp" :style="{backgroundColor: randomColor()}" @click="showPointDetail()">
             <p class="point__letter">{{ getPointLetter() }}</p>
             <div class="point__description" :class="{point__description_visible: showDescription}">
-                <div class="point__description_author">{{ getAuthorName }}</div>
+                <div class="point__description_author">{{ authorName }}</div>
                 <div class="point__description_name" :title="pointName">{{ pointName }}</div>
                 <div class="point__description_points">
                     <div>
@@ -29,7 +29,7 @@
 <script>
 export default {
     name: 'PointComponent',
-    props: ["pointId", "pointName", "authorId", "coordX", "coordY"],
+    props: ["pointId", "pointName", "authorId", "authorName", "coordX", "coordY"],
     data() {
         return {
             pointBgColors: [
@@ -39,7 +39,6 @@ export default {
                 "#BFA357", "#A68016", "#FFCD45", "#FFDA74", "#FFE499"
             ],
             showDescription: false,
-            authorName: '',
         }
     },
     methods: {
@@ -61,15 +60,6 @@ export default {
           window.location.reload()
         }
     },
-    computed: {
-        getAuthorName(){
-            this.$load(async() => {
-                const user = (await this.$api.users.userById(this.authorId)).data
-                this.authorName = user.username
-          })
-          return this.authorName
-        }
-    }
 }
 </script>
 

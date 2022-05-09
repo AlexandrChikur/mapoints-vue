@@ -22,7 +22,8 @@
                         <point-component 
                             :pointId="point.id"
                             :pointName="point.name" 
-                            :authorId="point.user_id" 
+                            :authorId="point.user_id"
+                            :authorName="point.author_name"
                             :coordX="point.x" 
                             :coordY="point.y"
                         />
