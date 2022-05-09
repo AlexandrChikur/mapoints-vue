@@ -7,7 +7,7 @@ export default {
     },
     getters: {
         getToken(state) {
-            return state.token !== null
+            return state.token
         },
         getUser(state) {
             return state.user

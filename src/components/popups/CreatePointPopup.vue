@@ -28,7 +28,7 @@
 
 <script>
 import { validationMixin } from 'vuelidate'
-import { required } from 'vuelidate/lib/validators'
+import { required, numeric } from 'vuelidate/lib/validators'
 export default {
     name: "CreatePointPopup",
     mixins: [ validationMixin ],
@@ -48,10 +48,12 @@ export default {
           required
         },
         x: {
-          required
+          required,
+          numeric
         },
         y: {
-          required
+          required,
+          numeric
         },
       }
     },
@@ -63,9 +65,24 @@ export default {
       createPoint() {
         this.$v.form.$touch()
         if (this.$v.form.$error) {
-            this.$notifyError("Probably some field is empty. They are all is required") 
+            if (this.$v.form.x.$dirty && !this.$v.form.x.numeric) {
+              this.$notifyError("The X property should be only numeric") 
+            } else if (this.$v.form.y.$dirty && !this.$v.form.y.numeric) {
+              this.$notifyError("The Y property should be only numeric") 
+            } else {
+              this.$notifyError("Probably some field is empty. They are all is required") 
+            }
         } else {
-          console.log(1)
+          this.$load(async() => {
+            await this.$api.points.pointAdd({
+                          name: this.form.name,
+                          x: this.form.x,
+                          y: this.form.y,
+            })
+            this.closePopUp()
+            window.location.reload()
+            this.$notifySuccess("The point were created successfully.")
+          })
         }
       }
     },

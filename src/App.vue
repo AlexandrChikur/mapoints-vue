@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <notifications/>
+
     <header-component
         :loggedIn="loggedIn"
         :username="getUserName"
@@ -8,41 +10,41 @@
         :loggedIn="loggedIn"
         :username="getUserName"
         :userId="getUserId"/>
-    <points-component
+    <!-- <points-component
         :loggedIn="loggedIn"
         :username="getUserName"
-        :userId="getUserId"/>
+        :userId="getUserId"/> -->
   </div>
 </template>
 
 <script>
 import HeaderComponent from './components/HeaderComponent'
-import PointsComponent from './components/PointsComponent'
+// import PointsComponent from './components/PointsComponent'
 import PointsListComponent from './components/PointsListComponent.vue'
 
 export default {
   name: 'App',
   components: {
     HeaderComponent,
-    PointsComponent,
+    // PointsComponent,
     PointsListComponent,
   },
   computed: {
       loggedIn(){
         if(this.$store.getters.getUser){
-          return JSON.parse(this.$store.getters.getUser).user.token
+          return this.$store.getters.getToken
         }
         return null;
       },
       getUserName(){
         if(this.$store.getters.getUser){
-          return JSON.parse(this.$store.getters.getUser).user.username
+          return JSON.parse(this.$store.getters.getUser).username
         }
         return null;
       },
       getUserId(){
         if(this.$store.getters.getUser){
-          return JSON.parse(this.$store.getters.getUser).user.id
+          return JSON.parse(this.$store.getters.getUser).id
         }
         return null;
       }

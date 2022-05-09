@@ -62,8 +62,10 @@ export default {
                           username: this.form.login,
                           password: this.form.password
             })).data
-            localStorage.setItem("user", JSON.stringify(data))
-            this.$store.dispatch('setUser', JSON.stringify(data))
+            localStorage.setItem("user", JSON.stringify(data.user))
+            localStorage.setItem("token", data.user.token)
+            this.$store.dispatch('setUser', JSON.stringify(data.user))
+            this.$store.dispatch('setToken', data.user.token)
             this.$notifySuccess("You are logged in successfully")
             this.closePopUp()
           })

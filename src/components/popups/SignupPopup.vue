@@ -71,6 +71,7 @@ export default {
                           password: this.form.password
             })
             this.$notifySuccess("A user has been created successfully. Now you are able to log in.")
+            this.closePopUp()
           })
         }
       }

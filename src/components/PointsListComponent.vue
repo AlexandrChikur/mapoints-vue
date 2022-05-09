@@ -1,8 +1,8 @@
 <template>
     <div class="root_points-list">
-        <create-point-popup v-if="isCreatePointPopUpVisible" @closePopup="closePopUp"/>
 
-        <div class="points-list">
+        <div class="points-list" v-if="loggedIn">
+            <create-point-popup v-if="isCreatePointPopUpVisible" @closePopup="closePopUp"/>
             <div class="points-list__header">
                 <div class="points-list__header_title">My points</div>
                 <div class="points__header__btns flex_nowrap cp">
@@ -17,9 +17,23 @@
                 </div>
             </div>
             <div class="points-list__body">
-                <point-component/>
+                <div v-if="points.length > 0" class="flex_nowrap">
+                    <div v-for="(point, idx) in points" :key="idx">
+                        <point-component 
+                            :pointId="point.id"
+                            :pointName="point.name" 
+                            :authorId="point.user_id" 
+                            :coordX="point.x" 
+                            :coordY="point.y"
+                        />
+                    </div>
+                </div>
+                <div class="points__body__nothing" v-else>
+                    Nothing here yet :)
+                </div>
             </div>
         </div>
+
     </div>
 </template>
 
@@ -29,13 +43,19 @@ import CreatePointPopup from './popups/CreatePointPopup.vue'
 export default {
   components: { PointComponent, CreatePointPopup },
     name: 'PointsComponent',
+    props: ["loggedIn"],
     data() {
         return {
             isCreatePointPopUpVisible: false,
-            temp: { // temporary value
-                pointsExists: true,
-                pointTitle: "Lorem ipsum dolor sot"
-            }
+            points: []
+        }
+    },
+    created() {
+        if (this.loggedIn) {
+            this.$load(async() => {
+            const data = (await this.$api.points.userPointsList()).data
+            this.points = data.results
+            })
         }
     },
     methods: {
@@ -46,6 +66,9 @@ export default {
             this.isCreatePointPopUpVisible = false;
         }
     },
+    computed: {
+
+    }
 }
 </script>
 
