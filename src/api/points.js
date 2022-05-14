@@ -3,6 +3,13 @@ export default function(instance) {
         pointsList() {
             return instance.get('points')
         },
+        pointsListLookup(lookup) {
+            return instance.get('points', {
+                params: {
+                    lookup: lookup
+                }
+            })
+        },
         userPointsList() {
             const token = localStorage.getItem("token")
             return instance.get('points/my', {

@@ -5,9 +5,9 @@
                 <div class="points__header_title block_header_font_size">Points</div>
                 <div class="points__header__btns">
                     <div class="points__header__btns__findall flex_nowrap cp">
-                        <input type="text" name="" id="" class="points__header__btns__findall_input" placeholder="Name, coord, author">
-                        <img src="../assets/img/ico/search.svg" alt="Find by" class="points__header__btns_search-icon points__header__btn_ico">
-                        <div class="points__header__btns__findall_text points__header__btn_txt">Search all</div>
+                        <input type="text" name="" id="" class="points__header__btns__findall_input" placeholder="Name, Author" v-model="form.searchInput">
+                        <img src="../assets/img/ico/search.svg" alt="Find by" class="points__header__btns_search-icon points__header__btn_ico" @click="searchPoints">
+                        <div class="points__header__btns__findall_text points__header__btn_txt" @click="loadAllPoints">Search all</div>
                     </div>
                 </div>
             </div>
@@ -50,11 +50,14 @@
 <script>
 import PointComponent from './PointComponent.vue'
 export default {
-  components: { PointComponent },
+    components: { PointComponent },
     name: 'PointsComponent',
     data() {
         return {
-            points: []
+            points: [],
+            form: {
+                searchInput: ""
+            }
         }
     },
     created() {
@@ -67,9 +70,26 @@ export default {
         deletePoint(pointId) {
             let i = this.points.map(item => item.id).indexOf(pointId)
             this.points.splice(i, 1) 
+        },
+        searchPoints(){
+            if (this.form.searchInput == '') {
+                return
+            }
+            this.$load(async() => {
+                const points = (await this.$api.points.pointsListLookup(this.form.searchInput)).data
+                console.log(points)
+                this.points = points.results
+            })
+        },
+        loadAllPoints(){
+            this.$load(async() => {
+                const data = (await this.$api.points.pointsList()).data
+                this.points = data.results
+            })
         }
     },
 }
+
 </script>
 
 <style scoped>
