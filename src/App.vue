@@ -14,6 +14,8 @@
         :loggedIn="loggedIn"
         :username="getUserName"
         :userId="getUserId"/>
+    <route-component 
+        :loggedIn="loggedIn"/>
   </div>
 </template>
 
@@ -21,6 +23,7 @@
 import HeaderComponent from './components/HeaderComponent'
 import PointsComponent from './components/PointsComponent'
 import PointsListComponent from './components/PointsListComponent.vue'
+import RouteComponent from './components/RouteComponent.vue'
 
 export default {
   name: 'App',
@@ -28,9 +31,11 @@ export default {
     HeaderComponent,
     PointsComponent,
     PointsListComponent,
+    RouteComponent,
   },
   computed: {
-      loggedIn(){
+      
+    loggedIn(){
         if(this.$store.getters.getUser){
           return this.$store.getters.getToken
         }

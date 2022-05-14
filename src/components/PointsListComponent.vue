@@ -26,6 +26,7 @@
                             :authorName="point.author_name"
                             :coordX="point.x" 
                             :coordY="point.y"
+                            :enabledDesciprion="true"
                         />
                     </div>
                 </div>

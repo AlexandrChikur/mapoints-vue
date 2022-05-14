@@ -5,9 +5,10 @@ export default {
                 await action()
             } catch (error) {
                 try {
+                    console.error(error)
                     Vue.prototype.$notifyError(error.response.data.detail)
                 } catch (error) {
-                    console.error(error.response.data)
+                    console.error(error)
                     Vue.prototype.$notifyError("Happaned something unexpected. Send console log report to support team.")
                 }
             }

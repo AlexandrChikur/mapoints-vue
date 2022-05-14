@@ -11,10 +11,12 @@
                     :authorName="point.author_name"
                     :coordX="point.x" 
                     :coordY="point.y"
+                    :enabledDesciprion="true"
                 />
             </div>
         </div>
-        <div class="points-chain_block__total"> 
+        <div class="points-chain_block__total">
+            <p v-if="isBest">BEST ROUTE</p>
             {{ totalDist }} c.u.
         </div>
     </div>
@@ -28,7 +30,7 @@ import PointComponent from './PointComponent.vue'
 export default {
   components: { PointComponent },
     name: 'PointsChainComponent',
-    props: ["pointList", "totalDist"],
+    props: ["pointList", "totalDist", "isBest"],
     data() {
         return {}
     },

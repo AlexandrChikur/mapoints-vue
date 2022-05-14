@@ -1,8 +1,8 @@
 <template>
     <div class="root_point">
         <div class="point cp" :style="{backgroundColor: randomColor()}" @click="showPointDetail()">
-            <p class="point__letter">{{ getPointLetter() }}</p>
-            <div class="point__description" :class="{point__description_visible: showDescription}">
+            <p class="point__letter">{{ pointId }}</p>
+            <div class="point__description" :class="{point__description_visible: showDescription}" v-if="enabledDesciprion">
                 <div class="point__description_author">{{ authorName }}</div>
                 <div class="point__description_name" :title="pointName">{{ pointName }}</div>
                 <div class="point__description_points">
@@ -28,7 +28,7 @@
 <script>
 export default {
     name: 'PointComponent',
-    props: ["pointId", "pointName", "authorId", "authorName", "coordX", "coordY"],
+    props: ["pointId", "pointName", "authorId", "authorName", "coordX", "coordY", "enabledDesciprion"],
     data() {
         return {
             pointBgColors: [
@@ -48,13 +48,13 @@ export default {
         showPointDetail(){
             this.showDescription = !this.showDescription;
         },
-        getPointLetter(){
-            return this.pointName.slice(0,1).toUpperCase()
-        },
+        // getPointLetter(){
+        //     return this.pointName.slice(0,1).toUpperCase()
+        // },
         deletePoint() {
             this.$load(async() => {
                 await this.$api.points.deletePointById(this.pointId)
-                this.$parent.deletePoint(this.pointId)
+                window.location.reload()
                 this.$notifySuccess("This point were successfully deleted.")
           })
         }

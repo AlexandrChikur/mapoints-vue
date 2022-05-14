@@ -12,10 +12,9 @@
                 </div>
             </div>
             <div class="points__body">
-
-                <div v-if="points.length > 0" class="">
+                <div v-if="points.length > 0" class="points__body_wrapper">
                     <div v-for="(point, idx) in points" :key="idx">
-                        <div class="points__body__point" @change="onEditorChange($event)">
+                        <div class="points__body__point">
                             <point-component 
                                 :pointId="point.id"
                                 :pointName="point.name" 
@@ -23,6 +22,7 @@
                                 :authorName="point.author_name"
                                 :coordX="point.x" 
                                 :coordY="point.y"
+                                :enabledDesciprion="false"
                             />
                             <div class="points__body__point__name" :title="point.name">
                                     {{ point.name }}
