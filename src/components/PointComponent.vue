@@ -19,7 +19,6 @@
                     <div>
                         <div class="point__description__point__delete" @click="deletePoint">Delete</div>
                     </div>
-                    
                 </div>
             </div>
         </div>
@@ -55,9 +54,9 @@ export default {
         deletePoint() {
             this.$load(async() => {
                 await this.$api.points.deletePointById(this.pointId)
+                this.$parent.deletePoint(this.pointId)
                 this.$notifySuccess("This point were successfully deleted.")
           })
-          window.location.reload()
         }
     },
 }

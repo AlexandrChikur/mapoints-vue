@@ -18,7 +18,7 @@
             </div>
             <div class="points-list__body">
                 <div v-if="points.length > 0" class="points-list__body-points">
-                    <div v-for="(point, idx) in points" :key="idx">
+                    <div v-for="(point, idx) in points" :key="idx" class="points-list__body-points-point">
                         <point-component 
                             :pointId="point.id"
                             :pointName="point.name" 
@@ -54,8 +54,8 @@ export default {
     created() {
         if (this.loggedIn) {
             this.$load(async() => {
-            const data = (await this.$api.points.userPointsList()).data
-            this.points = data.results
+                const data = (await this.$api.points.userPointsList()).data
+                this.points = data.results
             })
         }
     },
@@ -65,7 +65,11 @@ export default {
         },
         closePopUp() {
             this.isCreatePointPopUpVisible = false;
-        }
+        },
+        deletePoint(pointId) {
+            let i = this.points.map(item => item.id).indexOf(pointId)
+            this.points.splice(i, 1) 
+        },
     },
     computed: {
 

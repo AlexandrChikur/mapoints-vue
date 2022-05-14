@@ -12,20 +12,32 @@
                 </div>
             </div>
             <div class="points__body">
-                <div class="points__body__point" v-if="temp.pointsExists">
-                    <point-component/>
-                    <div class="points__body__point__name" :title="temp.pointTitle">
-                            {{ temp.pointTitle }}
+
+                <div v-if="points.length > 0" class="">
+                    <div v-for="(point, idx) in points" :key="idx">
+                        <div class="points__body__point" @change="onEditorChange($event)">
+                            <point-component 
+                                :pointId="point.id"
+                                :pointName="point.name" 
+                                :authorId="point.user_id"
+                                :authorName="point.author_name"
+                                :coordX="point.x" 
+                                :coordY="point.y"
+                            />
+                            <div class="points__body__point__name" :title="point.name">
+                                    {{ point.name }}
+                            </div>
+                            <div class="points__body__point__coord flex_nowrap">
+                                <div class="points__body__point__coord_name">X</div>
+                                <div class="points__body__point__coord_value point_coord_value">{{ point.x }}</div>
+                            </div>
+                            <div class="points__body__point__coord flex_nowrap">
+                                <div class="points__body__point__coord_name">Y</div>
+                                <div class="points__body__point__coord_value point_coord_value">{{ point.y }}</div>
+                            </div>
+                            <div class="points__body__point__author">{{ point.author_name }}</div>
+                        </div>
                     </div>
-                    <div class="points__body__point__coord flex_nowrap">
-                        <div class="points__body__point__coord_name">X</div>
-                        <div class="points__body__point__coord_value point_coord_value">4322</div>
-                    </div>
-                    <div class="points__body__point__coord flex_nowrap">
-                        <div class="points__body__point__coord_name">Y</div>
-                        <div class="points__body__point__coord_value point_coord_value">3242</div>
-                    </div>
-                    <div class="points__body__point__author">John Doe</div>
                 </div>
                 <div class="points__body__nothing" v-else>
                     Nothing here yet :)
@@ -42,14 +54,20 @@ export default {
     name: 'PointsComponent',
     data() {
         return {
-            temp: { // temporary value
-                pointsExists: true,
-                pointTitle: "Lorem ipsum dolor sot"
-            }
+            points: []
         }
     },
+    created() {
+        this.$load(async() => {
+            const data = (await this.$api.points.pointsList()).data
+            this.points = data.results
+        })
+    },
     methods: {
-
+        deletePoint(pointId) {
+            let i = this.points.map(item => item.id).indexOf(pointId)
+            this.points.splice(i, 1) 
+        }
     },
 }
 </script>
