@@ -5,7 +5,8 @@ const instance = axios.create({
     baseURL: "https://mapoints-api.herokuapp.com/api/",
     withCredentials: true,
     headers: {
-        accept: "application/json"
+        accept: "application/json",
+        "Access-Control-Allow-Origin": "*"
     }
 })
 
