@@ -94,7 +94,6 @@ export default {
                     const map = (await this.$api.maps.routes(this.pointsArea.map((obj) => obj.value))).data
                     this.parseMap(map)
                 })
-                this.showSpinner = false;
             }
 
         },
@@ -117,6 +116,7 @@ export default {
                     total: route_total
                 })
             }
+            this.showSpinner = false;
             this.builtRoutes = routes
         },
         parseRoute(route) {
@@ -137,7 +137,7 @@ export default {
                 route: full_route,
                 total: route_total
             })
-
+            this.showSpinner = false;
             this.builtRoutes = routes
         },
         buildBestRoute() {
