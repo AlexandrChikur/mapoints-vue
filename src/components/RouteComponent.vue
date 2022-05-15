@@ -94,7 +94,6 @@ export default {
                     const map = (await this.$api.maps.routes(this.pointsArea.map((obj) => obj.value))).data
                     this.parseMap(map)
                 })
-                this.showSpinner = false;
             }
 
         },
@@ -149,7 +148,6 @@ export default {
                     const map = (await this.$api.maps.bestRoute(this.pointsArea.map((obj) => obj.value))).data
                     this.parseRoute(map.route)
                 })
-                this.showSpinner = false;
             }
         },
         removePointId(idx) {
