@@ -292,7 +292,7 @@ a {
 .points__body__nothing {
     display: flex;
     width: 100%;
-    height: 100%;
+    height: 400px;
     line-height: 50px;
     align-items: center;
     justify-content: center;
