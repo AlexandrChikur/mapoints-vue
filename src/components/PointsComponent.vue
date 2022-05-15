@@ -39,7 +39,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="points__body__nothing" v-else>
+                <div class="points__body__nothing points__body__nothing_list" v-else>
                     Nothing here yet :)
                 </div>
             </div>

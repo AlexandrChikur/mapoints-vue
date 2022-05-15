@@ -292,10 +292,14 @@ a {
 .points__body__nothing {
     display: flex;
     width: 100%;
-    height: 400px;
+    height: 100%;
     line-height: 50px;
     align-items: center;
     justify-content: center;
+}
+
+.points__body__nothing_list {
+    height: 400px;
 }
 
 .points__body__point {

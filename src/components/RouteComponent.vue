@@ -87,12 +87,16 @@ export default {
             this.builtRoutes = []
         },
         buildAllRoutes() {
-            this.cleanRoutes();
-            this.$load(async() => {
-                this.showSpinner = true
-                const map = (await this.$api.maps.routes(this.pointsArea.map((obj) => obj.value))).data
-                this.parseMap(map)
-            })
+            if (this.pointsArea.length > 0) {
+                this.cleanRoutes();
+                this.$load(async() => {
+                    this.showSpinner = true
+                    const map = (await this.$api.maps.routes(this.pointsArea.map((obj) => obj.value))).data
+                    this.parseMap(map)
+                })
+                this.showSpinner = false;
+            }
+
         },
         parseMap(map){
             var routes = []
@@ -114,11 +118,10 @@ export default {
                 })
             }
             this.builtRoutes = routes
-            this.showSpinner = false;
         },
         parseRoute(route) {
             var routes = []
-            
+
             var idx = 0;
             var full_route = [];
             var route_total = 0;
@@ -136,15 +139,17 @@ export default {
             })
 
             this.builtRoutes = routes
-            this.showSpinner = false;
         },
         buildBestRoute() {
-            this.cleanRoutes();
-            this.$load(async() => {
-                this.showSpinner = true
-                const map = (await this.$api.maps.bestRoute(this.pointsArea.map((obj) => obj.value))).data
-                this.parseRoute(map.route)
-            })
+            if (this.pointsArea.length > 0) {
+                this.cleanRoutes();
+                this.$load(async() => {
+                    this.showSpinner = true
+                    const map = (await this.$api.maps.bestRoute(this.pointsArea.map((obj) => obj.value))).data
+                    this.parseRoute(map.route)
+                })
+                this.showSpinner = false;
+            }
         },
         removePointId(idx) {
             this.pointsArea.splice(idx, 1)
