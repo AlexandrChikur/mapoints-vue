@@ -94,6 +94,7 @@ export default {
                     const map = (await this.$api.maps.routes(this.pointsArea.map((obj) => obj.value))).data
                     this.parseMap(map)
                 })
+                this.showSpinner = false;
             }
 
         },
